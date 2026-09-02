@@ -1,0 +1,48 @@
+.about-company{
+    max-width:1200px;
+    margin:80px auto;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    gap:60px;
+}
+
+.about-left{
+    flex:1;
+}
+
+.about-right{
+    flex:1;
+}
+
+.about-right img{
+    width:100%;
+    border-radius:15px;
+}
+
+.sub-title{
+    color:#C59D5F;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+.about-left h2{
+    font-size:42px;
+    margin:15px 0;
+}
+
+.about-left p{
+    line-height:1.8;
+    margin-bottom:20px;
+    color:#666;
+}
+
+.about-left button{
+    padding:14px 30px;
+    border:none;
+    background:#C59D5F;
+    color:#fff;
+    cursor:pointer;
+    border-radius:5px;
+}

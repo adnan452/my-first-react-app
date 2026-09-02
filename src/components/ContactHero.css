@@ -1,0 +1,35 @@
+.contact-banner {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.contact-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+}
+
+.banner-overlay h1 {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.banner-overlay p {
+    font-size: 22px;
+}

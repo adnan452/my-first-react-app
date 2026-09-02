@@ -1,0 +1,45 @@
+.users-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.users-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #111;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.user-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(199, 154, 83, 0.2); /* आपकी साइट की गोल्डन थीम */
+  border-color: #c79a53;
+}
+
+.user-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.user-email, .user-phone {
+  font-size: 14px;
+  color: #666;
+  margin: 6px 0;
+}
