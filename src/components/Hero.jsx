@@ -8,7 +8,7 @@ function Hero() {
       style={{ backgroundImage: `url(${hero})` }}
     >
       <div className="overlay">
-        <h1>Welcome to Digicaptain</h1>
+        <h1>Welcome to Digicaptain Technologies</h1>
 
         <p>Learn React by Building Real Projects.</p>
 
