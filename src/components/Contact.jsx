@@ -1,9 +1,37 @@
+import { useState } from "react";
 import "./Contact.css";
 
 function Contact() {
+  const [result, setResult] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setResult("Sending....");
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "96ff3326-6eae-4054-a4a9-b188bbeba1ff");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Message Sent Successfully! ✅");
+        e.target.reset();
+      } else {
+        setResult("Error: " + data.message);
+      }
+    } catch (error) {
+      setResult("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <section className="contact">
-
       {/* Left Side */}
       <div className="contact-info">
         <h5>CONTACT US</h5>
@@ -37,28 +65,41 @@ function Contact() {
 
       {/* Right Side */}
       <div className="contact-form">
-        <form>
+        <form onSubmit={handleSubmit}>
+          {/* Fixed Subject Hidden Field */}
+          <input 
+            type="hidden" 
+            name="subject" 
+            value="New Website Inquiry" 
+          />
 
-          <input type="text" placeholder="Your Name" required/>
+          {/* CC Email Hidden Field */}
+          <input 
+            type="hidden" 
+            name="cc" 
+            value="suyash@digicaptaintechnologies.com" 
+          />
 
-          <input type="email" placeholder="Your Email" required/>
-
-          <input type="text" placeholder="Phone Number"  required/>
-
-          <input type="text" placeholder="Subject" />
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <input type="text" name="phone" placeholder="Phone Number" required />
 
           <textarea
             rows="6"
+            name="message"
             placeholder="Your Message"
+            required
           ></textarea>
 
-          <button type="submit">
-            Send Message
-          </button>
-
+          <button type="submit">Send Message</button>
         </form>
-      </div>
 
+        {result && (
+          <p style={{ marginTop: "15px", textAlign: "center", color: "#c79a53", fontWeight: "bold" }}>
+            {result}
+          </p>
+        )}
+      </div>
     </section>
   );
 }

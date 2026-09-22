@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./Users.css"; // CSS file link
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -11,7 +12,6 @@ function Users() {
         if (!response.ok) {
           throw new Error("Failed to fetch users");
         }
-
         return response.json();
       })
       .then((data) => {
@@ -25,25 +25,23 @@ function Users() {
   }, []);
 
   if (loading) {
-    return <h2>Loading users...</h2>;
+    return <h2 style={{ textAlign: "center", margin: "50px 0" }}>Loading users...</h2>;
   }
 
   if (error) {
-    return <h2>Error: {error}</h2>;
+    return <h2 style={{ textAlign: "center", margin: "50px 0", color: "red" }}>Error: {error}</h2>;
   }
 
   return (
-    <section>
-      <h2>Our Users</h2>
+    <section className="users-section">
+      <h2 className="users-title">Our Users</h2>
 
-      <div className="users-container">
+      <div className="users-grid">
         {users.map((user) => (
           <div className="user-card" key={user.id}>
             <h3>{user.name}</h3>
-
-            <p>📧 {user.email}</p>
-
-            <p>📞 {user.phone}</p>
+            <p className="user-email">📧 {user.email}</p>
+            <p className="user-phone">📞 {user.phone}</p>
           </div>
         ))}
       </div>
