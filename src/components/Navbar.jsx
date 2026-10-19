@@ -10,6 +10,7 @@ function Navbar() {
       </div>
 
       <ul className="nav-links">
+
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -27,11 +28,18 @@ function Navbar() {
         </li>
 
         <li>
+          <Link to="/faq">FAQ</Link>
+        </li>
+
+        <li>
           <Link to="/contact">Contact</Link>
         </li>
+
       </ul>
 
-      <button className="btn"><a href="#">Book Now</a></button>
+      <button className="btn">
+        <a href="#">Book Now</a>
+      </button>
 
     </nav>
   );
